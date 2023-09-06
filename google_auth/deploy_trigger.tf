@@ -14,7 +14,7 @@ resource "google_cloud_scheduler_job" "job" {
     uri         = var.uri
     oidc_token {
       service_account_email = var.service_account_email
-      audience              = replace(var.uri, "\\?.*$", "")
+      audience              = replace(var.uri, "/\\?.*/", "")
     }
   }
 }
